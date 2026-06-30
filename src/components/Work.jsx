@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { ExternalLink, Database, ShieldAlert, Smartphone } from 'lucide-react';
+import xjoins from '../assets/project-icons/xjoins.png';
+import goSchoolify from '../assets/project-icons/goSchoolify.png';
+import aryventory from '../assets/project-icons/aryventory.png';
 
 export default function Work() {
   const containerRef = useRef(null);
@@ -11,7 +13,8 @@ export default function Work() {
       title: "XJOINS",
       category: "Enterprise ETL Platform",
       role: "Frontend Lead",
-      icon: 0,
+      icon: xjoins,
+      url: 'https://xjoins.com/',
       highlights: [
         "Led frontend architecture using React.js, TanStack Query, AG Grid, Handsontable, and React Flow for real-time asynchronous pipelines.",
         "Engineered custom enterprise AG Grid rendering layout with deep column mutations, dropping custom commercial grids to save ~$1,000/year.",
@@ -24,7 +27,8 @@ export default function Work() {
       title: "School Management System",
       category: "Cross-Platform Application",
       role: "Frontend Developer",
-      icon: 0,
+      icon: goSchoolify,
+      url: "https://goschoolify.com",
       highlights: [
         "Built core staff/student scheduling engines with modular offline tracking features.",
         "Implemented high-performance mobile map integration engines with zero-latency vehicle location loops via React Native Reanimated."
@@ -33,14 +37,22 @@ export default function Work() {
     },
     {
       title: "Aryventory",
-      category: "Operations Module",
+      category: "Inventory Management Application",
       role: "Frontend Developer",
-      icon: 0,
+      icon: aryventory,
+      url: "https://aryventory.com",
       highlights: [
-        "Developed operations view-models mapping high-throughput warehouse logistics and live stock fluctuations.",
-        "Optimized reporting interfaces with AG Grid visual layer extensions for corporate metrics analytics."
+        "Developed mobile inventory workflows for stock management, item tracking, and warehouse operations.",
+        "Built responsive React Native interfaces for real-time inventory updates, search, filtering, and transaction history."
       ],
-      tech: ["React.js", "AG Grid", "GSAP", "React Flow", "Custom Dashboards", "REST Integration"]
+      tech: [
+        "React Native",
+        "Redux Toolkit",
+        "REST APIs",
+        "Axios",
+        "React Navigation",
+        "Offline Storage"
+      ]
     }
   ];
 
@@ -57,7 +69,6 @@ useEffect(() => {
         scrollTrigger: {
           trigger: card,
           start: "top 80%",
-          markers: true,
         }
       });
     });
@@ -87,14 +98,44 @@ useEffect(() => {
             <div className="flex flex-col lg:flex-row justify-between gap-8">
               
               <div className="max-w-3xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-[#0a0a10] border border-white/[0.05] rounded-xl shrink-0">
-                    {proj.icon}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                  <div className='flex items-center gap-4'>
+                    <div className="w-16 h-16 p-3 bg-[#0a0a10] border border-white/[0.05] rounded-xl shrink-0 flex items-center justify-center">
+                      <img
+                        src={proj.icon}
+                        alt={`${proj.title} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <span className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-wider">{proj.role}</span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mt-0.5">{proj.title}</h3>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-wider">{proj.role}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mt-0.5">{proj.title}</h3>
-                  </div>
+                  {proj.url && (
+                    <a
+                      href={proj.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-between gap-2 px-4 py-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-medium hover:bg-emerald-500 hover:text-black transition-all duration-300"
+                    >
+                      Visit Project
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14 3h7v7m0-7L10 14m11 7H3V3"
+                        />
+                      </svg>
+                    </a>
+                  )}
                 </div>
                 
                 <p className="font-mono text-xs text-slate-500 mb-6">{proj.category}</p>

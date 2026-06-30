@@ -1,18 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-// import { Code, Binary, Cpu, Workflow } from 'lucide-react';
+import {
+  List,
+  Search,
+  ArrowUpDown,
+  Hash,
+  GitBranch,
+  Brain,
+  MoveUpRight,
+} from "lucide-react";
 
 export default function DSAUpskill() {
   const containerRef = useRef(null);
 
   const modules = [
-    { title: "Linear Sequences", items: ["Arrays", "Strings", "Linked Lists"], icon: 0 },
-    { title: "Search Architecture", items: ["Binary Search", "Two Pointers", "Sliding Window"], icon: 0 },
-    { title: "Sorting & Combinatorics", items: ["Sorting Algorithms", "Recursion", "Backtracking"], icon: 0 },
-    { title: "Core Logic Foundations", items: ["Hashing Techniques", "Greedy Logic Structures", "Heaps"], icon: 0 },
-    { title: "Non-Linear Formations", items: ["Binary Trees", "Binary Search Trees (BST)"], icon: 0 },
-    { title: "Advanced Optimizations", items: ["Basic Graphs Theory", "Dynamic Programming Foundations"], icon: 0 }
+    { title: "Linear Sequences", items: ["Arrays", "Strings", "Linked Lists"], icon: List },
+    { title: "Search Architecture", items: ["Binary Search", "Two Pointers", "Sliding Window"], icon: Search},
+    { title: "Sorting & Combinatorics", items: ["Sorting Algorithms", "Recursion", "Backtracking"], icon: ArrowUpDown },
+    { title: "Core Logic Foundations", items: ["Hashing Techniques", "Greedy Logic Structures", "Heaps"], icon: Hash },
+    { title: "Non-Linear Formations", items: ["Binary Trees", "Binary Search Trees (BST)"], icon: GitBranch },
+    { title: "Advanced Optimizations", items: ["Basic Graphs Theory", "Dynamic Programming Foundations"], icon: Brain }
   ];
+
+  const leetcode = "https://leetcode.com/u/raibansari919/";
+  const tuf = "https://takeuforward.org/profile/faraz06";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -25,7 +36,6 @@ export default function DSAUpskill() {
         opacity: 0,
         scale: 0.95,
         y: 20,
-        // stagger: 0.08,
         duration: 0.8,
         ease: 'bounce.inOut'
       });
@@ -49,10 +59,18 @@ export default function DSAUpskill() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
-          {modules.map((m, i) => (
+          {modules.map((m, i) => {
+            const Icon = m.icon;
+            return (
             <div key={i} className="dsa-node p-6 bg-[#030305]/60 border border-white/[0.04] rounded-xl hover:border-emerald-500/20 transition-all">
-              <div className="flex items-center gap-2.5 text-emerald-400 font-mono text-xs font-bold mb-3 border-b border-white/[0.03] pb-2">
-                {m.icon} <span>{m.title}</span>
+              <div className="flex items-center gap-3 mb-4 pb-3 border-b border-white/[0.03]">
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                  <Icon size={18} className="text-emerald-400" />
+                </div>
+
+                <span className="font-mono text-xs font-bold text-emerald-400">
+                  {m.title}
+                </span>
               </div>
               <div className="space-y-1.5">
                 {m.items.map((item, idx) => (
@@ -63,7 +81,57 @@ export default function DSAUpskill() {
                 ))}
               </div>
             </div>
-          ))}
+          )})}
+        </div>
+        <div className="mt-12 pt-8 border-t border-white/[0.05] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-slate-500">
+              Problem Solving Progress
+            </p>
+            <p className="text-sm text-slate-400 mt-2">
+              Solved 300+ DSA problems across LeetCode while systematically following the Take U Forward (TUF) A2Z DSA Sheet, strengthening algorithmic thinking, data structure fundamentals, and problem-solving patterns through consistent practice.
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-3 shrink-0 w-full sm:w-auto">
+            <a
+              href={leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all duration-300"
+            >
+              <div>
+                <p className="font-semibold text-sm">LeetCode</p>
+                <p className="font-mono text-[11px] opacity-70">
+                  View Profile
+                </p>
+              </div>
+
+              <MoveUpRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </a>
+
+            <a
+              href={tuf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:border-emerald-500/20 hover:text-emerald-400 transition-all duration-300"
+            >
+              <div>
+                <p className="font-semibold text-sm">Take U Forward</p>
+                <p className="font-mono text-[11px] opacity-70">
+                  View Profile
+                </p>
+              </div>
+
+              <MoveUpRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

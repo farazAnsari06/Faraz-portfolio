@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-// import { Mail, Phone, Linkedin, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, ArrowUpRight, ShieldCheck, CircleUserRound } from 'lucide-react';
 
 export default function Contact() {
   const triggerRef = useRef(null);
@@ -37,7 +37,7 @@ export default function Contact() {
             Available for technical software engineer tracks focused on high-density web systems, UI architecture, and complex view layouts.
           </p>
           <div className="contact-animate flex items-center gap-2 font-mono text-xs text-slate-500">
-            {/* <ShieldCheck size={14} className="text-emerald-400" /> Secure network point verified. */}
+            <ShieldCheck size={14} className="text-emerald-400" /> Secure network point verified.
           </div>
         </div>
 
@@ -48,14 +48,14 @@ export default function Contact() {
           >
             <div className="flex items-center gap-4">
               <div className="p-3 bg-[#0a0a10] text-emerald-400 rounded-xl">
-                {/* <Mail size={20} /> */}
+                <Mail size={20} />
                 </div>
               <div>
                 <span className="font-mono text-[10px] text-slate-500 block uppercase">ELECTRONIC MAIL</span>
                 <span className="text-sm md:text-base text-white font-mono">raibansari919@gmail.com</span>
               </div>
             </div>
-            {/* <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" /> */}
+            <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
           </a>
 
           <a 
@@ -64,14 +64,14 @@ export default function Contact() {
           >
             <div className="flex items-center gap-4">
               <div className="p-3 bg-[#0a0a10] text-emerald-400 rounded-xl">
-                {/* <Phone size={20} /> */}
+                <Phone size={20} />
                 </div>
               <div>
                 <span className="font-mono text-[10px] text-slate-500 block uppercase">TELEPHONY</span>
                 <span className="text-sm md:text-base text-white font-mono">+91 9372086854</span>
               </div>
             </div>
-            {/* <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" /> */}
+            <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
           </a>
 
           <a 
@@ -83,13 +83,14 @@ export default function Contact() {
             <div className="flex items-center gap-4">
               <div className="p-3 bg-[#0a0a10] text-emerald-400 rounded-xl">
                 {/* <Linkedin size={20} /> */}
+                <CircleUserRound size={20}/>
                 </div>
               <div>
                 <span className="font-mono text-[10px] text-slate-500 block uppercase">PROFESSIONAL NETWORKING</span>
                 <span className="text-sm md:text-base text-white font-mono">linkedin.com/in/faraz-ansari</span>
               </div>
             </div>
-            {/* <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" /> */}
+            <ArrowUpRight size={18} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
           </a>
         </div>
 

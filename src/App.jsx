@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Component Imports
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,7 +17,6 @@ export default function App() {
   const mainRef = useRef(null);
 
   useEffect(() => {
-    // Premium Smooth Scroll & Entrance Timeline
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray('.scroll-section');
       

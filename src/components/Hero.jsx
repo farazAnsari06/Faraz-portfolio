@@ -151,7 +151,7 @@ export default function Hero() {
 
             <div className="absolute inset-0 rounded-[42%_58%_55%_45%/40%_35%_65%_60%] border border-white/10 backdrop-blur-xl bg-white/5 overflow-hidden shadow-2xl">
               <img
-                src="/profilePicture1.jpeg"
+                src="/profilePicture2.jpeg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
